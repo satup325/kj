@@ -25,6 +25,8 @@ Website sistem informasi Kantin Kejujuran BPS Kota Gunungsitoli berbasis web men
 
 Database: `kantin_kejujuran`
 
+## Selengkapnya...
+
 👥 Role Pengguna
 Admin: Kelola produk, user, dan laporan transaksi.
 User: Melihat dan membeli produk.
@@ -40,5 +42,6 @@ Validasi input pada form login dan register
 📌 Catatan Tambahan
 Proyek ini masih dalam pengembangan.
 Saran dan kontribusi sangat diterima.
+
 
 © 2025 Fober
