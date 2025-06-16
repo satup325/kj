@@ -1,0 +1,180 @@
+/* Custom Styles */
+:root {
+	--header-height: 56px;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+	min-height: 100vh;
+	overflow-x: hidden;
+	margin: 0;
+	padding: 0;
+}
+.fixed-header {
+	position: fixed;
+	top: 0;
+	width: 100%;
+	z-index: 1000;
+	height: var(--header-height);
+}
+.fullscreen-hero {
+	height: 100vh;
+	padding-top: var(--header-height);
+	box-sizing: border-box;
+}
+
+* {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+
+.container {
+	flex: 1;
+}
+
+.container-fluid {
+	padding-right: 0 !important;
+	padding-left: 0 !important;
+}
+
+.navbar-brand img {
+	height: 40px;
+	transition: transform 0.3s;
+}
+
+.navbar-brand:hover img {
+	transform: scale(1.1);
+}
+
+.dropdown-menu {
+	border: none;
+	box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+}
+
+/* Hero Section */
+.hero-section {
+	width: 100vw;
+	position: relative;
+	left: 50%;
+	right: 50%;
+	margin-left: -50vw;
+	margin-right: -50vw;
+	padding-top: 56px; /* Sesuaikan tinggi header */
+	margin-top: -56px;
+	min-height: 100vh;
+	background-color: #0d6efd; /* Fallback color */
+}
+
+.container-fluid.g-0 {
+	padding-right: 0 !important;
+	padding-left: 0 !important;
+}
+
+.row.g-0 {
+	--bs-gutter-x: 0;
+	margin-right: 0;
+	margin-left: 0;
+}
+
+.hero-image-col {
+	padding: 0 !important;
+}
+
+/* Gradient Overlay untuk Teks Lebih Jelas */
+.col-lg-6:first-child {
+	background: linear-gradient(
+		90deg,
+		rgba(13, 110, 253, 0.9) 0%,
+		rgba(13, 110, 253, 0.7) 80%,
+		transparent 100%
+	);
+}
+
+/* Product Card */
+.product-card {
+	transition: transform 0.3s, box-shadow 0.3s;
+	border-radius: 10px;
+	overflow: hidden;
+}
+
+.product-card:hover {
+	transform: translateY(-5px);
+	box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.product-card img {
+	height: 180px;
+	object-fit: cover;
+	transition: transform 0.5s;
+}
+
+.product-card:hover img {
+	transform: scale(1.05);
+}
+
+/* Testimoni Card */
+.testimoni-card {
+	border-left: 3px solid #0d6efd;
+}
+
+footer {
+	background: linear-gradient(135deg, #1a3e72, #0d6efd);
+}
+
+footer a {
+	color: #adb5bd;
+	text-decoration: none;
+	transition: color 0.3s;
+}
+
+footer a:hover {
+	color: white;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+	body {
+		padding-top: 60px;
+	}
+
+	.navbar-brand span {
+		font-size: 1rem;
+	}
+
+	.navbar-brand img {
+		height: 30px;
+	}
+
+	footer .col-md-4 {
+		margin-bottom: 1.5rem;
+	}
+}
+
+@media (max-width: 992px) {
+	.hero-section {
+		min-height: auto;
+	}
+
+	.col-lg-6:first-child {
+		background: linear-gradient(
+			0deg,
+			rgba(13, 110, 253, 0.9) 0%,
+			rgba(13, 110, 253, 0.7) 70%,
+			transparent 100%
+		);
+		padding-bottom: 3rem !important;
+	}
+
+	.hero-image-col {
+		min-height: 400px;
+		order: -1; /* Gambar di atas di mobile */
+	}
+}
+
+/* Image Treatment */
+.object-fit-cover {
+	object-fit: cover;
+	object-position: center;
+}
