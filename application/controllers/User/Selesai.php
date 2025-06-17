@@ -29,7 +29,11 @@ class Selesai extends CI_Controller
         $total = $this->Transaksi_model->count_transaksi_selesai_by_user($id_user);
 
         // Ambil data transaksi dengan limit dan offset
-        $raw = $this->Transaksi_model->get_transaksi_selesai_by_user_paginated($id_user, $limit, $offset);
+        $transaksi_ids = $this->Transaksi_model->get_transaksi_ids_paginated($id_user, $limit, $offset);
+        $id_list = array_map(fn($obj) => $obj->id_transaksi, $transaksi_ids);
+
+        $raw = $this->Transaksi_model->get_transaksi_detail_by_ids($id_list);
+
 
         // Kelompokkan berdasarkan ID transaksi
         $transaksi = [];

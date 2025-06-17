@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 16, 2025 at 05:51 AM
+-- Generation Time: Jun 17, 2025 at 05:30 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -62,6 +62,13 @@ CREATE TABLE `keranjang` (
   `tanggal` datetime DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Dumping data for table `keranjang`
+--
+
+INSERT INTO `keranjang` (`id_keranjang`, `id_akun`, `id_produk`, `jumlah`, `tanggal`) VALUES
+(32, 4, 1, 1, '2025-06-17 05:29:30');
+
 -- --------------------------------------------------------
 
 --
@@ -85,13 +92,13 @@ CREATE TABLE `produk` (
 --
 
 INSERT INTO `produk` (`id_produk`, `nama_produk`, `jumlah_satuan_besar`, `isi`, `harga_satuan_besar`, `harga_eceran`, `harga_jual`, `stok`, `gambar`) VALUES
-(1, 'Mie Gelas BBQ', 2, 10, 10000, 1000, 1500, 19, 'migelas-baso-sapi.png'),
+(1, 'Mie Gelas BBQ', 2, 10, 10000, 1000, 1500, 18, 'migelas-baso-sapi.png'),
 (4, 'Sukro Original', 5, 10, 10000, 1000, 1000, 4, 'sukro_original.png'),
-(5, 'Mikako Rasa Bawang', 2, 10, 10000, 1000, 1000, 18, 'mikako_rasa_bawang.png'),
-(14, 'Beng-beng', 2, 20, 45000, 2250, 2500, 31, 'beng-beng.png'),
-(15, 'Susu Frisan Flag Kental Manis', 2, 10, 20000, 2000, 2500, 20, 'frisian flag kental manis.png'),
+(5, 'Mikako Rasa Bawang', 2, 10, 10000, 1000, 1000, 15, 'mikako_rasa_bawang.png'),
+(14, 'Beng-beng', 2, 20, 45000, 2250, 2500, 25, 'beng-beng.png'),
+(15, 'Susu Frisan Flag Kental Manis', 2, 10, 20000, 2000, 2500, 18, 'frisian flag kental manis.png'),
 (16, 'Good Day Cappuccino', 2, 10, 20000, 2000, 2500, 20, 'good day cappuccino.png'),
-(18, 'Milo', 1, 50, 200000, 4000, 5000, 35, 'Milo.png'),
+(18, 'Milo', 1, 50, 200000, 4000, 5000, 27, 'Milo.png'),
 (19, 'Aqua', 1, 25, 100000, 4000, 5000, 20, NULL);
 
 -- --------------------------------------------------------
@@ -118,7 +125,15 @@ INSERT INTO `transaksi` (`id_transaksi`, `id_user`, `total`, `tanggal`, `status`
 (23, 2, 35000.00, '2025-06-15 10:34:50', 'selesai'),
 (24, 2, 9000.00, '2025-06-15 10:35:30', 'selesai'),
 (25, 2, 2500.00, '2025-06-15 10:35:45', 'selesai'),
-(26, 2, 5000.00, '2025-06-15 10:36:01', 'selesai');
+(26, 2, 5000.00, '2025-06-15 10:36:01', 'selesai'),
+(27, 2, 15000.00, '2025-06-16 10:04:12', 'selesai'),
+(28, 2, 6000.00, '2025-06-16 10:04:28', 'selesai'),
+(29, 4, 1500.00, '2025-06-17 03:15:07', 'selesai'),
+(30, 4, 2500.00, '2025-06-17 03:15:28', 'selesai'),
+(31, 4, 16000.00, '2025-06-17 03:16:05', 'selesai'),
+(32, 4, 2500.00, '2025-06-17 03:17:43', 'selesai'),
+(33, 4, 10000.00, '2025-06-17 03:17:55', 'selesai'),
+(34, 4, 11000.00, '2025-06-17 05:29:13', 'selesai');
 
 -- --------------------------------------------------------
 
@@ -149,7 +164,22 @@ INSERT INTO `transaksi_detail` (`id_detail`, `id_transaksi`, `id_produk`, `jumla
 (26, 24, 14, 1, 2500.00, 2500.00),
 (27, 24, 18, 1, 5000.00, 5000.00),
 (28, 25, 14, 1, 2500.00, 2500.00),
-(29, 26, 14, 2, 2500.00, 5000.00);
+(29, 26, 14, 2, 2500.00, 5000.00),
+(30, 27, 18, 3, 5000.00, 15000.00),
+(31, 28, 14, 1, 2500.00, 2500.00),
+(32, 28, 5, 1, 1000.00, 1000.00),
+(33, 28, 15, 1, 2500.00, 2500.00),
+(34, 29, 1, 1, 1500.00, 1500.00),
+(35, 30, 14, 1, 2500.00, 2500.00),
+(36, 31, 14, 2, 2500.00, 5000.00),
+(37, 31, 18, 2, 5000.00, 10000.00),
+(38, 31, 5, 1, 1000.00, 1000.00),
+(39, 32, 14, 1, 2500.00, 2500.00),
+(40, 33, 18, 2, 5000.00, 10000.00),
+(41, 34, 5, 1, 1000.00, 1000.00),
+(42, 34, 18, 1, 5000.00, 5000.00),
+(43, 34, 14, 1, 2500.00, 2500.00),
+(44, 34, 15, 1, 2500.00, 2500.00);
 
 --
 -- Indexes for dumped tables
@@ -204,7 +234,7 @@ ALTER TABLE `akun`
 -- AUTO_INCREMENT for table `keranjang`
 --
 ALTER TABLE `keranjang`
-  MODIFY `id_keranjang` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+  MODIFY `id_keranjang` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
 
 --
 -- AUTO_INCREMENT for table `produk`
@@ -216,13 +246,13 @@ ALTER TABLE `produk`
 -- AUTO_INCREMENT for table `transaksi`
 --
 ALTER TABLE `transaksi`
-  MODIFY `id_transaksi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
+  MODIFY `id_transaksi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
 
 --
 -- AUTO_INCREMENT for table `transaksi_detail`
 --
 ALTER TABLE `transaksi_detail`
-  MODIFY `id_detail` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
+  MODIFY `id_detail` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=45;
 
 --
 -- Constraints for dumped tables

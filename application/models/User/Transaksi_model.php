@@ -72,4 +72,32 @@ class Transaksi_model extends CI_Model
             ->get()
             ->result();
     }
+
+    // Ambil ID transaksi saja sesuai paginasi
+    public function get_transaksi_ids_paginated($id_user, $limit, $offset)
+    {
+        return $this->db->select('id_transaksi')
+            ->from('transaksi')
+            ->where('id_user', $id_user)
+            ->where('status', 'selesai')
+            ->order_by('tanggal', 'DESC')
+            ->limit($limit, $offset)
+            ->get()
+            ->result();
+    }
+
+    // Ambil detail semua transaksi berdasarkan ID
+    public function get_transaksi_detail_by_ids($ids)
+    {
+        if (empty($ids)) return [];
+
+        return $this->db->select('t.id_transaksi, t.tanggal, p.nama_produk, td.jumlah, td.subtotal')
+            ->from('transaksi_detail td')
+            ->join('transaksi t', 'td.id_transaksi = t.id_transaksi')
+            ->join('produk p', 'td.id_produk = p.id_produk')
+            ->where_in('t.id_transaksi', $ids)
+            ->order_by('t.tanggal', 'DESC')
+            ->get()
+            ->result();
+    }
 }
